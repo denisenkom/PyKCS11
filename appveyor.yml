@@ -1,0 +1,22 @@
+version: {build}
+
+os: Windows Server 2012 R2
+
+environment:
+  matrix:
+    - PYTHON: "C:\\Python36"
+    - PYTHON: "C:\\Python35"
+    - PYTHON: "C:\\Python27"
+
+install:
+  - "SET PATH=%PYTHON%;%PYTHON%\\Scripts;%PATH%"
+  - python --version
+  - "python -c \"import struct; print(struct.calcsize('P') * 8)\""
+  - pip install -r dev-requirements.txt
+
+build_script:
+  - python setup.py sdist
+  - python setup.py build
+
+test_script:
+  - python run_test.py
