@@ -33,25 +33,23 @@ inc_dirs = ["src"]
 if path.exists("/usr/local"):
     lib_dirs.append("/usr/local/lib")
     inc_dirs.append("/usr/local/include")
-source_files = ["src/ck_attribute_smart.cpp",
-                "src/pkcs11lib.cpp",
-                "src/pykcs11string.cpp",
-                "src/utility.cpp",
-                "src/pykcs11.i",
-                "src/pykcs11.cpp"]
+source_files = ["PyKCS11/ck_attribute_smart.cpp",
+                "PyKCS11/pkcs11lib.cpp",
+                "PyKCS11/pykcs11string.cpp",
+                "PyKCS11/utility.cpp",
+                "PyKCS11/pykcs11.i",
+                "PyKCS11/pykcs11.cpp"]
 define_macros = []
 extra_compile_args = []
 extra_link_args = []
 if (platform.system().lower() == 'windows'):
-    source_files.append("src/dyn_win32.c")
+    source_files.append("PyKCS11/dyn_win32.c")
     source_files.append("pykcs11.rc")
     libraries_val = ["python%d%d" % pyver[:2]]
     extra_compile_args = ["/Fdvc70.pdb", "/Zi", "/GR", "/EHsc"]
     extra_link_args = ["/DEBUG", "/PDB:_LowLevel.pdb", "/SUBSYSTEM:WINDOWS", "/OPT:REF", "/OPT:ICF"]
 else:
-    source_files.append("src/dyn_unix.c")
-    if not path.exists("src/pykcs11_wrap.cpp"):
-    	system("make src/pykcs11_wrap.cpp")
+    source_files.append("PyKCS11/dyn_unix.c")
     libraries_val = []
 
 setup(name="PyKCS11",
