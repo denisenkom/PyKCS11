@@ -37,7 +37,7 @@ source_files = ["src/ck_attribute_smart.cpp",
                 "src/pkcs11lib.cpp",
                 "src/pykcs11string.cpp",
                 "src/utility.cpp",
-                "src/pykcs11_wrap.cpp",
+                "src/pykcs11.i",
                 "src/pykcs11.cpp"]
 define_macros = []
 extra_compile_args = []
@@ -76,6 +76,7 @@ setup(name="PyKCS11",
             library_dirs=lib_dirs,
             libraries=libraries_val,
             define_macros=define_macros,
+            swig_opts=['-c++'],
             extra_compile_args=extra_compile_args,
             extra_link_args=extra_link_args)],
     py_modules=["PyKCS11.__init__", "PyKCS11.LowLevel"],
