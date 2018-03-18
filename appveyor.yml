@@ -16,7 +16,7 @@ install:
   # SWIG 3.0.8 is the minimum required version, but it does not yet exist in
   # Chocolatey.
   - IF NOT EXIST C:\ProgramData\chocolatey\bin\swig.exe choco install swig --version 3.0.9 --yes --limit-output #> $null
-  - curl -o softhsm.zip https://github.com/disig/SoftHSM2-for-Windows/releases/download/v2.3.0/SoftHSM2-2.3.0-portable.zip
+  - curl -Lo softhsm.zip https://github.com/disig/SoftHSM2-for-Windows/releases/download/v2.3.0/SoftHSM2-2.3.0-portable.zip
   - 7z x softhsm.zip
 
 build_script:
