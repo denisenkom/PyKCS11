@@ -8,6 +8,7 @@ environment:
 
 install:
   - "SET PATH=%PYTHON%;%PYTHON%\\Scripts;%PATH%;SoftHSM2\\bin"
+  - "set SOFTHSM2_CONF=SoftHSM2\\etc\\softhsm2.conf"
   - python --version
   - "python -c \"import struct; print(struct.calcsize('P') * 8)\""
   - pip install -r dev-requirements.txt
