@@ -3,8 +3,10 @@ os: Windows Server 2012 R2
 environment:
   matrix:
     - PYTHON: "C:\\Python36"
-    - PYTHON: "C:\\Python35"
+    - PYTHON: "C:\\Python36-x64"
+    - PYTHON: "C:\\Python35-x64"
     - PYTHON: "C:\\Python27"
+    - PYTHON: "C:\\Python27-x64"
 
 install:
   - "SET PATH=%PYTHON%;%PYTHON%\\Scripts;%PATH%;c:\\SoftHSM2\\bin;c:\\SoftHSM2\\lib"
