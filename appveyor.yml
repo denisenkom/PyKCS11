@@ -7,7 +7,7 @@ environment:
     - PYTHON: "C:\\Python27"
 
 install:
-  - "SET PATH=%PYTHON%;%PYTHON%\\Scripts;%PATH%"
+  - "SET PATH=%PYTHON%;%PYTHON%\\Scripts;%PATH%;SoftHSM2\\bin"
   - python --version
   - "python -c \"import struct; print(struct.calcsize('P') * 8)\""
   - pip install -r dev-requirements.txt
@@ -17,7 +17,8 @@ install:
   # Chocolatey.
   - IF NOT EXIST C:\ProgramData\chocolatey\bin\swig.exe choco install swig --version 3.0.9 --yes --limit-output #> $null
   - curl -Lo softhsm.zip https://github.com/disig/SoftHSM2-for-Windows/releases/download/v2.3.0/SoftHSM2-2.3.0-portable.zip
-  - 7z x softhsm.zip
+  - 7z -bb3 x softhsm.zip
+  - softhsm --init-token --slot 0 --label "A token" --pin 1234 --so-pin 123456
 
 build_script:
   - python setup.py sdist
