@@ -17,8 +17,8 @@ cache:
   - C:\ProgramData\chocolatey\lib -> appveyor.yml # supporting swig Lib files.
 
 install:
-  - SET PATH=%PYTHON%;%PYTHON%\Scripts;%PATH%;c:\SoftHSM2\bin;c:\SoftHSM2\lib
-  - SET SOFTHSM2_CONF=c:\SoftHSM2\etc\softhsm2.conf
+  - "SET PATH=%PYTHON%;%PYTHON%\\Scripts;%PATH%;C:\SoftHSM2\\bin;C:\\SoftHSM2\\lib"
+  - "SET SOFTHSM2_CONF=C:\\SoftHSM2\\etc\\softhsm2.conf"
   - tests\appveyor_install.cmd
 
 build_script:
