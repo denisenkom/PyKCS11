@@ -1,5 +1,3 @@
-SET PATH=%PYTHON%;%PYTHON%\Scripts;%PATH%;c:\SoftHSM2\bin;c:\SoftHSM2\lib
-set SOFTHSM2_CONF=c:\SoftHSM2\etc\softhsm2.conf
 echo %CD%
 python --version
 python -c "import struct; print(struct.calcsize('P') * 8)"
