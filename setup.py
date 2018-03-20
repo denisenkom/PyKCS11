@@ -3,7 +3,7 @@
 # python setup.py install --root=/tmp/p
 # PYTHONPATH=/tmp/p/usr/lib/python2.4/site-packages python test.py
 
-from setuptools import setup, Extension
+from distutils.core import setup, Extension
 from sys import version_info as pyver
 from os import path, system
 import platform
@@ -74,7 +74,7 @@ setup(name="PyKCS11",
             library_dirs=lib_dirs,
             libraries=libraries_val,
             define_macros=define_macros,
-            swig_opts=['-c++', '-Fmicrosoft'],
+            swig_opts=['-c++'],
             extra_compile_args=extra_compile_args,
             extra_link_args=extra_link_args)],
     py_modules=["PyKCS11.__init__", "PyKCS11.LowLevel"],
